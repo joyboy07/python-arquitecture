@@ -68,10 +68,10 @@ def submit_form(sede:str, titulo:str,  descripcion:str ):
         description.clear()
         description.send_keys(descripcion)
 
-        # buttonInsidencia = WebDriverWait(driver, 10).until(
-        #     EC.visibility_of_element_located((By.ID, 'btn_guardar_inc'))
-        # )
-        # buttonInsidencia.click()
+        buttonInsidencia = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located((By.ID, 'btn_guardar_inc'))
+        )
+        buttonInsidencia.click()
         time.sleep(5)
     finally:
         driver.quit()
