@@ -8,7 +8,6 @@ def get_chromedriver_path():
     base_path = os.path.dirname(os.path.abspath(__file__))
 
     chromedriver_path = os.path.join(base_path, 'chromedriver-win32', 'chromedriver.exe')
-    print(f"Chromedriver path: {chromedriver_path}")  # Imprime la ruta que se está buscando
     return chromedriver_path
 
 def initialize_browser():
