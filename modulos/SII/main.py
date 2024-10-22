@@ -1,18 +1,14 @@
 # main.py
-import sys
-sys.path.append('C:/Users/jporlles/Desktop/dev/python-arquitecture')
-from paquetes.selenium.browser_config import initialize_browser
+from browser_config import initialize_browser
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from decouple import Config, RepositoryEnv
+from decouple import config
 import time
 
 def submit_form(sede:str, titulo:str,  descripcion:str ):
-    config = Config(RepositoryEnv('C:/Users/jporlles/Desktop/dev/python-arquitecture/modulos/SII/.env'))
     driver = initialize_browser()
-
     try:
         driver.get(config('URLWEB'))
 
@@ -68,10 +64,10 @@ def submit_form(sede:str, titulo:str,  descripcion:str ):
         description.clear()
         description.send_keys(descripcion)
 
-        buttonInsidencia = WebDriverWait(driver, 10).until(
-            EC.visibility_of_element_located((By.ID, 'btn_guardar_inc'))
-        )
-        buttonInsidencia.click()
+        # buttonInsidencia = WebDriverWait(driver, 10).until(
+        #     EC.visibility_of_element_located((By.ID, 'btn_guardar_inc'))
+        # )
+        # buttonInsidencia.click()
         time.sleep(5)
     finally:
         driver.quit()
